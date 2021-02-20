@@ -1,16 +1,33 @@
 import React, {ReactElement} from 'react';
-import {SafeAreaView} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {
+  SafeAreaProvider,
+  initialWindowMetrics,
+  SafeAreaView,
+} from 'react-native-safe-area-context';
+import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
-import Home from 'screens/Home';
+import BottomTabs from './navigation/bottomTabsNavigation';
 
 import store from 'store';
 
 export default function App(): ReactElement {
   return (
     <Provider store={store}>
-      <SafeAreaView>
-        <Home />
-      </SafeAreaView>
+      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
+          <NavigationContainer>
+            <BottomTabs />
+          </NavigationContainer>
+        </SafeAreaView>
+      </SafeAreaProvider>
     </Provider>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'transparent',
+  },
+});
