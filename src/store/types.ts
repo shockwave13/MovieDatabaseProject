@@ -1,4 +1,5 @@
 import {IAppStore} from './app/types';
+import {IMoviesStore} from './movies/types';
 
 export interface IAction {
   type: string;
@@ -7,6 +8,7 @@ export interface IAction {
 
 export interface IStore {
   app: IAppStore;
+  movies: IMoviesStore;
 }
 
 export interface IResponse {

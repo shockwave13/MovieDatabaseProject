@@ -1,7 +1,7 @@
 import React, {ReactElement, useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {getTopRatedMovies} from 'store/app';
+import {getTopRatedMovies} from 'store/movies';
 import styles from './styles';
 
 export default function Home(): ReactElement {
