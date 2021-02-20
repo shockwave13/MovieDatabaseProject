@@ -9,27 +9,27 @@ import Home from 'screens/Home';
 
 const Tab = createBottomTabNavigator();
 
-export default function BottomTabs() {
-  const tabBarOptions: BottomTabBarOptions = {
-    activeTintColor: 'blue',
-    inactiveTintColor: 'gray',
-    style: {
-      height: 100,
-      shadowColor: '#000',
-      shadowOffset: {
-        width: 0,
-        height: 8,
-      },
-      shadowOpacity: 0.3,
-      shadowRadius: 10,
-      elevation: 5,
-      backgroundColor: 'white',
+const tabBarOptions: BottomTabBarOptions = {
+  activeTintColor: 'blue',
+  inactiveTintColor: 'gray',
+  style: {
+    height: 100,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 8,
     },
-    tabStyle: {
-      justifyContent: 'center',
-    },
-  };
+    shadowOpacity: 0.3,
+    shadowRadius: 10,
+    elevation: 5,
+    backgroundColor: 'white',
+  },
+  tabStyle: {
+    justifyContent: 'center',
+  },
+};
 
+export default function BottomTabs() {
   return (
     <View style={styles.container}>
       <Tab.Navigator tabBarOptions={tabBarOptions}>
