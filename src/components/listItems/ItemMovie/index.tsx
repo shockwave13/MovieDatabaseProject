@@ -1,19 +1,9 @@
 import React, {memo, ReactElement} from 'react';
-import {
-  Image,
-  StyleProp,
-  Text,
-  TextStyle,
-  TouchableOpacity,
-  ViewStyle,
-  View,
-} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import styles from './styles';
 import {IMAGE_BASE_URL} from 'api/constants';
 
 export interface IItemMovie {
-  // buttonStyle?: StyleProp<ViewStyle>;
-  // titleStyle?: StyleProp<TextStyle>;
   title: string;
   imageSource: string;
   onPress: () => void;

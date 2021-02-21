@@ -3,6 +3,8 @@ import {IAction} from '../types';
 
 const initState = {
   topRatedMovies: {},
+  currentMovieDetails: {},
+  currentMovieCredits: {},
 };
 
 const moviesReducer = (state = initState, action: IAction): IMoviesStore => {

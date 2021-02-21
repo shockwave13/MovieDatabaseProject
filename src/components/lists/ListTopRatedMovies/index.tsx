@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import ItemMovie, {IItemMovie} from 'components/listItems/ItemMovie';
 import React, {memo, ReactElement} from 'react';
 import {FlatList} from 'react-native';
@@ -9,6 +10,11 @@ interface IListTopRatedMovies {
 
 const ListTopRatedMovies = (props: IListTopRatedMovies): ReactElement => {
   const {data} = props;
+  const navigation = useNavigation();
+  const navigateTo = (screenName: string, params?: object): void => {
+    navigation.navigate(screenName, params);
+  };
+
   return (
     <FlatList
       numColumns={2}
@@ -18,7 +24,7 @@ const ListTopRatedMovies = (props: IListTopRatedMovies): ReactElement => {
         <ItemMovie
           title={item.title}
           imageSource={item.poster_path}
-          onPress={() => null}
+          onPress={() => navigateTo('MovieDetails', {movieId: item.id})}
         />
       )}
     />

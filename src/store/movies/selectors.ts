@@ -8,3 +8,13 @@ export const selectTopRatedMovies = createSelector(
   [getMoviesState],
   (moviesState) => moviesState.topRatedMovies,
 );
+
+export const selectCurrentMovieDetails = createSelector(
+  [getMoviesState],
+  (moviesState) => moviesState.currentMovieDetails,
+);
+
+export const selectCurrentMovieCredits = createSelector(
+  [getMoviesState],
+  (moviesState) => moviesState.currentMovieCredits,
+);

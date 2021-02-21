@@ -7,8 +7,7 @@ import {
 } from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
-import BottomTabs from './navigation/bottomTabsNavigation';
-
+import AppStack from './navigation/appNavigation';
 import store from 'store';
 
 export default function App(): ReactElement {
@@ -17,7 +16,7 @@ export default function App(): ReactElement {
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
         <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
           <NavigationContainer>
-            <BottomTabs />
+            <AppStack />
           </NavigationContainer>
         </SafeAreaView>
       </SafeAreaProvider>
