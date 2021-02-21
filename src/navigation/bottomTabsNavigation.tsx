@@ -5,7 +5,7 @@ import {
   BottomTabBarOptions,
 } from '@react-navigation/bottom-tabs';
 import {Icon} from 'react-native-elements';
-import Home from 'screens/Home';
+import TopRatedMovies from 'screens/TopRatedMovies';
 
 const Tab = createBottomTabNavigator();
 
@@ -40,8 +40,8 @@ export default function BottomTabs() {
             ),
             tabBarLabel: 'Home',
           }}
-          name="Home"
-          component={Home}
+          name="TopRatedMovies"
+          component={TopRatedMovies}
         />
         <Tab.Screen
           options={{
@@ -51,7 +51,7 @@ export default function BottomTabs() {
             tabBarLabel: 'Favorites',
           }}
           name="Favorites"
-          component={Home}
+          component={TopRatedMovies}
         />
       </Tab.Navigator>
     </View>

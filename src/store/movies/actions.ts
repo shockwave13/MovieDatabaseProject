@@ -10,8 +10,10 @@ export const setValue = (field: string, value: any): IAction => ({
   },
 });
 
-export const getTopRatedMovies = () => (dispatch: any) => {
-  API.get(`/movie/top_rated`)
+export const getTopRatedMovies = (pageNumber: number = 1) => (
+  dispatch: any,
+) => {
+  API.get(`/movie/top_rated?page=${pageNumber}`)
     .then((res) => {
       const {data} = res;
       dispatch(setValue('topRatedMovies', data));

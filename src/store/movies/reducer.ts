@@ -2,7 +2,7 @@ import {IMoviesStore, SET_VALUE_MOVIES} from './types';
 import {IAction} from '../types';
 
 const initState = {
-  topRatedMovies: [],
+  topRatedMovies: {},
 };
 
 const moviesReducer = (state = initState, action: IAction): IMoviesStore => {
