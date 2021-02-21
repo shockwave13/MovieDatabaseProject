@@ -19,8 +19,7 @@ export default function TopRatedMovies(): ReactElement {
   }, []);
 
   return (
-    <View>
-      <Text>123</Text>
+    <View style={styles.containerStyle}>
       <ListTopRatedMovies data={results} />
     </View>
   );

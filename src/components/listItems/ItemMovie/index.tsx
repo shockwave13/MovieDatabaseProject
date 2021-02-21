@@ -1,27 +1,37 @@
 import React, {memo, ReactElement} from 'react';
 import {
-  ButtonProps,
+  Image,
   StyleProp,
   Text,
   TextStyle,
   TouchableOpacity,
   ViewStyle,
+  View,
 } from 'react-native';
 import styles from './styles';
+import {IMAGE_BASE_URL} from 'api/constants';
 
-export interface IItemMovie extends ButtonProps {
-  buttonStyle?: StyleProp<ViewStyle>;
-  titleStyle?: StyleProp<TextStyle>;
+export interface IItemMovie {
+  // buttonStyle?: StyleProp<ViewStyle>;
+  // titleStyle?: StyleProp<TextStyle>;
+  title: string;
+  imageSource: string;
+  onPress: () => void;
 }
 
 const ItemMovie = (props: IItemMovie): ReactElement => {
-  const {onPress, title, buttonStyle, titleStyle} = props;
+  const {imageSource, title, onPress} = props;
   return (
-    <TouchableOpacity
-      style={[styles.buttonStyle, buttonStyle]}
-      onPress={onPress}>
-      <Text style={[styles.titleStyle, titleStyle]}>{title}</Text>
-    </TouchableOpacity>
+    <View style={[styles.containerStyle]}>
+      <TouchableOpacity style={styles.contentContainerStyle} onPress={onPress}>
+        <Image
+          source={{uri: `${IMAGE_BASE_URL}${imageSource}`}}
+          style={styles.posterImageStyle}
+          resizeMode="contain"
+        />
+        <Text style={[styles.titleStyle]}>{title}</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 

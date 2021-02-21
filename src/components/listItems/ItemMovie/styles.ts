@@ -1,15 +1,24 @@
 import {StyleSheet} from 'react-native';
+import {appSizes} from 'units';
 
 export default StyleSheet.create({
-  buttonStyle: {
-    alignItems: 'center',
-    padding: 20,
-    backgroundColor: '#54D3C2',
-    borderRadius: 10,
+  containerStyle: {
+    height: appSizes.movieItemHeight,
+    width: appSizes.movieItemWidth,
+  },
+  contentContainerStyle: {
+    height: '100%',
+    width: '100%',
   },
   titleStyle: {
-    fontSize: 25,
+    fontSize: 16,
     color: '#ffffff',
     fontWeight: '600',
+    textAlign: 'center',
+    height: 60,
+  },
+  posterImageStyle: {
+    marginBottom: 10,
+    flex: 1,
   },
 });
