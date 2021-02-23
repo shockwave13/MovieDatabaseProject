@@ -1,7 +1,7 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import MovieDetails from 'screens/MovieDetails';
-import BottomTabs from 'navigation/bottomTabsNavigation';
+import BottomTabs from './bottomTabsNavigation';
 
 const Stack = createStackNavigator();
 

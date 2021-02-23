@@ -10,6 +10,8 @@ export const appSizes = {
   wp100percent: wp('100%'),
   wp3percent: wp('3%'),
   wp5percent: wp('5%'),
+  wp10percent: wp('10%'),
+  wp20percent: wp('20%'),
 };
 
 export const appFontSizes = {

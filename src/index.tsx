@@ -27,6 +27,6 @@ export default function App(): ReactElement {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
+    backgroundColor: '#06445c',
   },
 });

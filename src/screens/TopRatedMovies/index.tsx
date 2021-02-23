@@ -1,5 +1,5 @@
 import React, {ReactElement, useEffect} from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
 import {getTopRatedMovies} from 'store/movies';
 import {selectTopRatedMovies} from 'store/movies/selectors';

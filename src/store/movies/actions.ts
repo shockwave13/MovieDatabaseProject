@@ -19,7 +19,6 @@ export const getTopRatedMovies = (pageNumber: number = 1) => (
     .then((res) => {
       const {data} = res;
       dispatch(setValueMovies('topRatedMovies', data));
-      console.log(data);
     })
     .catch((e) => {
       console.log('Error', e);
@@ -33,7 +32,6 @@ export const getMovieDetails = (movieId: number) => (dispatch: any) => {
     .then((res) => {
       const {data} = res;
       dispatch(setValueMovies('currentMovieDetails', data));
-      console.log(data);
     })
     .catch((e) => {
       console.log('Error', e);
@@ -46,7 +44,6 @@ export const getMovieCredits = (movieId: number) => (dispatch: any) => {
     .then((res) => {
       const {data} = res;
       dispatch(setValueMovies('currentMovieCredits', data));
-      console.log(data);
     })
     .catch((e) => {
       console.log('Error', e);

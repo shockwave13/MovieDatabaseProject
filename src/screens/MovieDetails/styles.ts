@@ -13,7 +13,7 @@ export default StyleSheet.create({
       height: 0,
     },
     shadowOpacity: 1,
-    shadowRadius: 50,
+    shadowRadius: 30,
     elevation: 50,
     paddingVertical: appSizes.wp5percent,
     backgroundColor: 'rgba(18, 85, 128, 0.1)',

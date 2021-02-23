@@ -19,6 +19,7 @@ import {IMAGE_BASE_URL} from 'api/constants';
 import globalStyles from 'styles/globalStyles';
 import DefaultLoader from 'components/loaders/DefaultLoader';
 import {isObjectEmpty} from 'services/helpers';
+import DefaultHeader from 'components/headers/DefaultHeader';
 
 export default function MovieDetails({navigation, route}: any): ReactElement {
   const dispatch = useDispatch();
@@ -61,6 +62,7 @@ export default function MovieDetails({navigation, route}: any): ReactElement {
   }
   return (
     <View style={styles.containerStyle}>
+      <DefaultHeader useLeftButton title={currentMovieDetails.title} />
       <ImageBackground
         resizeMode="cover"
         style={styles.imageBackgroundStyle}
