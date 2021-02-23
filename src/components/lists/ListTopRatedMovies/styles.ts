@@ -3,8 +3,8 @@ import {appSizes} from 'units';
 
 export default StyleSheet.create({
   columnWrapperStyle: {
-    paddingHorizontal: appSizes.generalAppPadding,
+    paddingHorizontal: appSizes.wp3percent,
     justifyContent: 'space-between',
-    paddingVertical: appSizes.generalAppPadding,
+    paddingVertical: appSizes.wp3percent,
   },
 });

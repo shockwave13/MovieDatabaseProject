@@ -3,8 +3,8 @@ import {appSizes} from 'units';
 
 export default StyleSheet.create({
   containerStyle: {
-    height: appSizes.movieItemHeight,
-    width: appSizes.movieItemWidth,
+    height: appSizes.wp85percent,
+    width: appSizes.wp45percent,
   },
   contentContainerStyle: {
     height: '100%',
