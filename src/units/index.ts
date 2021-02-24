@@ -16,6 +16,7 @@ export const appSizes = {
 };
 
 export const appFontSizes = {
+  fontSize12: RFValue(12, 812),
   fontSize16: RFValue(16, 812),
   fontSize22: RFValue(22, 812),
   fontSize30: RFValue(30, 812),

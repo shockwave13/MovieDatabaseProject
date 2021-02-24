@@ -61,7 +61,7 @@ export const getMovieVideos = (movieId: number) => (dispatch: any) => {
   API.get(`/movie/${movieId}/videos`)
     .then((res) => {
       const {data} = res;
-      dispatch(setValueMovies('currentMovieVideos', data));
+      dispatch(setValueMovies('currentMovieVideos', data.results));
     })
     .catch((e) => {
       console.log('Error', e);

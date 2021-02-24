@@ -30,6 +30,7 @@ import DefaultLoader from 'components/loaders/DefaultLoader';
 import {isAlreadyAddedToFavorites, isObjectEmpty} from 'services/helpers';
 import DefaultHeader from 'components/headers/DefaultHeader';
 import {ScrollView} from 'react-native-gesture-handler';
+import ListMovieVideos from 'components/lists/ListMovieVideos';
 
 export default function MovieDetails({navigation, route}: any): ReactElement {
   const dispatch = useDispatch();
@@ -132,6 +133,7 @@ export default function MovieDetails({navigation, route}: any): ReactElement {
                   </Text>
                 </TouchableOpacity>
               )}
+              <ListMovieVideos data={currentMovieVideos} />
             </View>
           </ScrollView>
         </>
