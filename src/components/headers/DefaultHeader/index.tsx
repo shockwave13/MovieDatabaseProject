@@ -8,10 +8,12 @@ export interface IItemMovie {
   title: string;
   useLeftButton: boolean;
   onPress?: () => void;
+  onPressRightButton?: () => void;
+  isFavorite?: boolean;
 }
 
 const DefaultHeader = (props: IItemMovie): ReactElement => {
-  const {title, useLeftButton} = props;
+  const {title, useLeftButton, onPressRightButton, isFavorite} = props;
   const navigation = useNavigation();
   return (
     <View style={styles.containerStyle}>
@@ -27,8 +29,8 @@ const DefaultHeader = (props: IItemMovie): ReactElement => {
       <Text style={styles.titleStyle}>{title}</Text>
 
       <Icon
-        // onPress={() => navigation.goBack()}
-        name="star-outline"
+        onPress={onPressRightButton}
+        name={isFavorite ? 'star' : 'star-outline'}
         color="#ffffff"
         size={40}
       />

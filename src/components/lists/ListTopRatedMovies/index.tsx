@@ -20,7 +20,7 @@ const ListTopRatedMovies = (props: IListTopRatedMovies): ReactElement => {
       numColumns={2}
       data={data}
       columnWrapperStyle={styles.columnWrapperStyle}
-      keyExtractor={(item) => item.id.toString()}
+      keyExtractor={(item, index) => index + item.id.toString()}
       renderItem={({item}) => (
         <ItemMovie
           title={item.title}

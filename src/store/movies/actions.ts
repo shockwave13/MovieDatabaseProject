@@ -2,6 +2,7 @@ import {SET_VALUE_MOVIES} from './types';
 import {IAction} from '../types';
 import API from 'api';
 import {setLoading} from 'store/app';
+import {isAlreadyAddedToFavorites} from 'services/helpers';
 
 export const setValueMovies = (field: string, value: any): IAction => ({
   type: SET_VALUE_MOVIES,
@@ -49,4 +50,31 @@ export const getMovieCredits = (movieId: number) => (dispatch: any) => {
       console.log('Error', e);
     })
     .finally(() => dispatch(setLoading(true)));
+};
+
+export const addMovieToFavorites = (newMovie: any) => (
+  dispatch: any,
+  getState: any,
+) => {
+  const {favoritesMovies} = getState().movies;
+  const isAlreadyAdded = isAlreadyAddedToFavorites(
+    favoritesMovies,
+    newMovie.id,
+  );
+  if (!isAlreadyAdded) {
+    const updatedArray = favoritesMovies.concat(newMovie);
+    dispatch(setValueMovies('favoritesMovies', updatedArray));
+  }
+};
+
+export const removeMovieFromFavorites = (movieId: number) => (
+  dispatch: any,
+  getState: any,
+) => {
+  const {favoritesMovies} = getState().movies;
+
+  const updatedArray = favoritesMovies.filter(
+    (item: any) => item.id !== movieId,
+  );
+  dispatch(setValueMovies('favoritesMovies', updatedArray));
 };

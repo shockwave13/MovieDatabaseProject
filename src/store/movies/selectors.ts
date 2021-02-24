@@ -18,3 +18,8 @@ export const selectCurrentMovieCredits = createSelector(
   [getMoviesState],
   (moviesState) => moviesState.currentMovieCredits,
 );
+
+export const selectFavoritesMovies = createSelector(
+  [getMoviesState],
+  (moviesState) => moviesState.favoritesMovies,
+);

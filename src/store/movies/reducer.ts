@@ -1,10 +1,11 @@
-import {IMoviesStore, SET_VALUE_MOVIES} from './types';
+import {IMoviesStore, SET_VALUE_MOVIES, ADD_MOVIE_TO_FAVORITES} from './types';
 import {IAction} from '../types';
 
 const initState = {
   topRatedMovies: {},
   currentMovieDetails: {},
   currentMovieCredits: {},
+  favoritesMovies: [],
 };
 
 const moviesReducer = (state = initState, action: IAction): IMoviesStore => {
@@ -16,6 +17,7 @@ const moviesReducer = (state = initState, action: IAction): IMoviesStore => {
         [field]: value,
       };
     }
+
     default:
       return state;
   }
