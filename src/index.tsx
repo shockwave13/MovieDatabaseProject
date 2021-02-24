@@ -7,19 +7,24 @@ import {
 } from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {Provider} from 'react-redux';
+import {PersistGate} from 'redux-persist/integration/react';
 import AppStack from './navigation/appNavigation';
-import store from 'store';
+import {store, persistor} from 'store';
 
 export default function App(): ReactElement {
   return (
     <Provider store={store}>
-      <SafeAreaProvider initialMetrics={initialWindowMetrics}>
-        <SafeAreaView style={styles.container} edges={['right', 'top', 'left']}>
-          <NavigationContainer>
-            <AppStack />
-          </NavigationContainer>
-        </SafeAreaView>
-      </SafeAreaProvider>
+      <PersistGate loading={null} persistor={persistor}>
+        <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+          <SafeAreaView
+            style={styles.container}
+            edges={['right', 'top', 'left']}>
+            <NavigationContainer>
+              <AppStack />
+            </NavigationContainer>
+          </SafeAreaView>
+        </SafeAreaProvider>
+      </PersistGate>
     </Provider>
   );
 }
