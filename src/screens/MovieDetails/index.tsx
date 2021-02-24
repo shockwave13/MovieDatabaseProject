@@ -11,6 +11,7 @@ import {
   addMovieToFavorites,
   getMovieCredits,
   getMovieDetails,
+  getMovieVideos,
   removeMovieFromFavorites,
   setValueMovies,
 } from 'store/movies';
@@ -18,6 +19,7 @@ import {
   selectCurrentMovieDetails,
   selectCurrentMovieCredits,
   selectFavoritesMovies,
+  selectCurrentMovieVideos,
 } from 'store/movies/selectors';
 import {selectAppLoadingStatus} from 'store/app/selectors';
 import {IStore} from 'store/types';
@@ -34,6 +36,7 @@ export default function MovieDetails({navigation, route}: any): ReactElement {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const [showMoreButtonVisible, setShowMoreButtonVisible] = useState(false);
   const {movieId} = route.params;
+
   const loading = useSelector((state: IStore) => selectAppLoadingStatus(state));
   const favoritesMovies = useSelector((state: IStore) =>
     selectFavoritesMovies(state),
@@ -44,12 +47,16 @@ export default function MovieDetails({navigation, route}: any): ReactElement {
   const currentMovieCredits = useSelector((state: IStore) =>
     selectCurrentMovieCredits(state),
   );
+  const currentMovieVideos = useSelector((state: IStore) =>
+    selectCurrentMovieVideos(state),
+  );
 
   const isEmpty = isObjectEmpty(currentMovieDetails);
 
   useEffect(() => {
     dispatch(getMovieDetails(movieId));
     dispatch(getMovieCredits(movieId));
+    dispatch(getMovieVideos(movieId));
     return cleanUp;
   }, []);
 

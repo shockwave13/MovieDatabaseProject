@@ -5,5 +5,6 @@ export interface IMoviesStore {
   topRatedMovies: any;
   currentMovieDetails: any;
   currentMovieCredits: any;
+  currentMovieVideos: any;
   favoritesMovies: Array<object>;
 }

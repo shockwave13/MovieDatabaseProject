@@ -8,6 +8,7 @@ const initState = {
   },
   currentMovieDetails: {},
   currentMovieCredits: {},
+  currentMovieVideos: {},
   favoritesMovies: [],
 };
 

@@ -43,7 +43,7 @@ export const getMovieDetails = (movieId: number) => (dispatch: any) => {
     .catch((e) => {
       console.log('Error', e);
     })
-    .finally(() => dispatch(setLoading(true)));
+    .finally(() => dispatch(setLoading(false)));
 };
 
 export const getMovieCredits = (movieId: number) => (dispatch: any) => {
@@ -54,8 +54,18 @@ export const getMovieCredits = (movieId: number) => (dispatch: any) => {
     })
     .catch((e) => {
       console.log('Error', e);
+    });
+};
+
+export const getMovieVideos = (movieId: number) => (dispatch: any) => {
+  API.get(`/movie/${movieId}/videos`)
+    .then((res) => {
+      const {data} = res;
+      dispatch(setValueMovies('currentMovieVideos', data));
     })
-    .finally(() => dispatch(setLoading(true)));
+    .catch((e) => {
+      console.log('Error', e);
+    });
 };
 
 export const addMovieToFavorites = (newMovie: any) => (
