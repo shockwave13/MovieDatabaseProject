@@ -3,6 +3,7 @@ import {Text, View} from 'react-native';
 import styles from './styles';
 import {Icon} from 'react-native-elements';
 import {useNavigation} from '@react-navigation/native';
+import {appFontSizes} from 'units';
 
 export interface IItemMovie {
   title: string;
@@ -22,7 +23,7 @@ const DefaultHeader = (props: IItemMovie): ReactElement => {
           onPress={() => navigation.goBack()}
           name="chevron-left"
           color="#ffffff"
-          size={45}
+          size={appFontSizes.fontSize40}
         />
       )}
 
@@ -32,7 +33,7 @@ const DefaultHeader = (props: IItemMovie): ReactElement => {
         onPress={onPressRightButton}
         name={isFavorite ? 'star' : 'star-outline'}
         color="#ffffff"
-        size={40}
+        size={appFontSizes.fontSize40}
       />
     </View>
   );

@@ -27,6 +27,7 @@ import globalStyles from 'styles/globalStyles';
 import DefaultLoader from 'components/loaders/DefaultLoader';
 import {isAlreadyAddedToFavorites, isObjectEmpty} from 'services/helpers';
 import DefaultHeader from 'components/headers/DefaultHeader';
+import {ScrollView} from 'react-native-gesture-handler';
 
 export default function MovieDetails({navigation, route}: any): ReactElement {
   const dispatch = useDispatch();
@@ -90,40 +91,42 @@ export default function MovieDetails({navigation, route}: any): ReactElement {
             title={currentMovieDetails.title}
             isFavorite={!!isAlreadyAdded}
           />
-          <ImageBackground
-            resizeMode="cover"
-            style={styles.imageBackgroundStyle}
-            source={{
-              uri: `${IMAGE_BASE_URL}${currentMovieDetails.backdrop_path}`,
-            }}>
-            <View style={styles.imageContainerStyle}>
-              <Image
-                resizeMode="contain"
-                style={styles.imageStyle}
-                source={{
-                  uri: `${IMAGE_BASE_URL}${currentMovieDetails.poster_path}`,
-                }}
-              />
+          <ScrollView>
+            <ImageBackground
+              resizeMode="cover"
+              style={styles.imageBackgroundStyle}
+              source={{
+                uri: `${IMAGE_BASE_URL}${currentMovieDetails.backdrop_path}`,
+              }}>
+              <View style={styles.imageContainerStyle}>
+                <Image
+                  resizeMode="contain"
+                  style={styles.imageStyle}
+                  source={{
+                    uri: `${IMAGE_BASE_URL}${currentMovieDetails.poster_path}`,
+                  }}
+                />
+              </View>
+            </ImageBackground>
+            <View style={styles.infoContainerStyle}>
+              <Text style={globalStyles.defaultTitleStyle}>
+                {currentMovieDetails.title}
+              </Text>
+              <Text style={globalStyles.defaultDescriptionStyle}>
+                {showFullDescription
+                  ? currentMovieDetails.overview
+                  : `${currentMovieDetails.overview.slice(0, 300)}...`}
+              </Text>
+              {showMoreButtonVisible && (
+                <TouchableOpacity
+                  onPress={() => setShowFullDescription(!showFullDescription)}>
+                  <Text style={styles.showMoreTextStyle}>
+                    {showFullDescription ? 'less' : 'show more'}
+                  </Text>
+                </TouchableOpacity>
+              )}
             </View>
-          </ImageBackground>
-          <View style={styles.infoContainerStyle}>
-            <Text style={globalStyles.defaultTitleStyle}>
-              {currentMovieDetails.title}
-            </Text>
-            <Text style={globalStyles.defaultDescriptionStyle}>
-              {showFullDescription
-                ? currentMovieDetails.overview
-                : `${currentMovieDetails.overview.slice(0, 300)}...`}
-            </Text>
-            {showMoreButtonVisible && (
-              <TouchableOpacity
-                onPress={() => setShowFullDescription(!showFullDescription)}>
-                <Text style={styles.showMoreTextStyle}>
-                  {showFullDescription ? 'less' : 'show more'}
-                </Text>
-              </TouchableOpacity>
-            )}
-          </View>
+          </ScrollView>
         </>
       )}
     </View>

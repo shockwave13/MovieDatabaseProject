@@ -7,26 +7,23 @@ import {
 import {Icon} from 'react-native-elements';
 import TopRatedMovies from 'screens/TopRatedMovies';
 import FavoritesMovies from 'screens/FavoritesMovies';
+import {appFontSizes, appSizes} from 'units';
 
 const Tab = createBottomTabNavigator();
 
 const tabBarOptions: BottomTabBarOptions = {
-  activeTintColor: 'blue',
-  inactiveTintColor: 'gray',
+  activeTintColor: '#29d1ff',
+  inactiveTintColor: '#ffffff',
   style: {
-    height: 100,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 8,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 10,
-    elevation: 5,
-    backgroundColor: 'white',
+    height: appSizes.wp30percent,
+    backgroundColor: '#303c45',
   },
   tabStyle: {
     justifyContent: 'center',
+    paddingVertical: appSizes.wp3percent,
+  },
+  labelStyle: {
+    fontSize: appFontSizes.fontSize16,
   },
 };
 
@@ -37,7 +34,12 @@ export default function BottomTabs() {
         <Tab.Screen
           options={{
             tabBarIcon: ({color}) => (
-              <Icon name="film" type="feather" color={color} size={30} />
+              <Icon
+                name="film"
+                type="feather"
+                color={color}
+                size={appFontSizes.fontSize30}
+              />
             ),
             tabBarLabel: 'Home',
           }}
@@ -47,7 +49,12 @@ export default function BottomTabs() {
         <Tab.Screen
           options={{
             tabBarIcon: ({color}) => (
-              <Icon name="heart" type="feather" color={color} size={30} />
+              <Icon
+                name="heart"
+                type="feather"
+                color={color}
+                size={appFontSizes.fontSize30}
+              />
             ),
             tabBarLabel: 'Favorites',
           }}
@@ -62,6 +69,5 @@ export default function BottomTabs() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'red',
   },
 });

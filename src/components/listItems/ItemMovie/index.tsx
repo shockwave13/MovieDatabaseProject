@@ -13,7 +13,7 @@ export interface IItemMovie {
 const ItemMovie = (props: IItemMovie): ReactElement => {
   const {imageSource, title, onPress} = props;
   return (
-    <View style={[styles.containerStyle]}>
+    <View style={styles.containerStyle}>
       <TouchableOpacity style={styles.contentContainerStyle} onPress={onPress}>
         <FastImage
           style={styles.posterImageStyle}
