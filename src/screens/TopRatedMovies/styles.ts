@@ -13,5 +13,6 @@ export default StyleSheet.create({
   },
   containerStyle: {
     backgroundColor: '#06445c',
+    flex: 1,
   },
 });

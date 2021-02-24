@@ -12,15 +12,20 @@ export default function TopRatedMovies(): ReactElement {
   const topRatedMovies = useSelector((state: IStore) =>
     selectTopRatedMovies(state),
   );
-  const {results} = topRatedMovies;
+
+  const {results, page} = topRatedMovies;
 
   useEffect(() => {
-    dispatch(getTopRatedMovies(1));
+    page === 0 && dispatch(getTopRatedMovies());
   }, []);
+
+  const onEndReached = () => {
+    dispatch(getTopRatedMovies(page + 1));
+  };
 
   return (
     <View style={styles.containerStyle}>
-      <ListTopRatedMovies data={results} />
+      <ListTopRatedMovies onEndReached={onEndReached} data={results} />
     </View>
   );
 }

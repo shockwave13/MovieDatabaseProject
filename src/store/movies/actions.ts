@@ -14,12 +14,18 @@ export const setValueMovies = (field: string, value: any): IAction => ({
 
 export const getTopRatedMovies = (pageNumber: number = 1) => (
   dispatch: any,
+  getState: any,
 ) => {
   dispatch(setLoading(true));
   API.get(`/movie/top_rated?page=${pageNumber}`)
     .then((res) => {
       const {data} = res;
-      dispatch(setValueMovies('topRatedMovies', data));
+      const {topRatedMovies} = getState().movies;
+      const updatedArray = topRatedMovies.results.concat(data.results);
+      dispatch(
+        setValueMovies('topRatedMovies', {...data, results: updatedArray}),
+      );
+      // dispatch(dispatch(setValueMovies('topRatedMovies', data)));
     })
     .catch((e) => {
       console.log('Error', e);

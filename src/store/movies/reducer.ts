@@ -2,7 +2,10 @@ import {IMoviesStore, SET_VALUE_MOVIES, ADD_MOVIE_TO_FAVORITES} from './types';
 import {IAction} from '../types';
 
 const initState = {
-  topRatedMovies: {},
+  topRatedMovies: {
+    page: 0,
+    results: [],
+  },
   currentMovieDetails: {},
   currentMovieCredits: {},
   favoritesMovies: [],
