@@ -6,7 +6,7 @@
 
 ### Extra step for iOS
 
-run `npx pod-install`
+run `cd ios && pod install && cd..`
 
 ### Run project
 
