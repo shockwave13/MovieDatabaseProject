@@ -1,4 +1,4 @@
-import React, {ReactElement, useEffect, useState, useCallback} from 'react';
+import React, {ReactElement, useEffect, useState} from 'react';
 import {
   Image,
   ImageBackground,
@@ -99,7 +99,7 @@ export default function MovieDetails({navigation, route}: any): ReactElement {
             title={currentMovieDetails.title}
             isFavorite={!!isAlreadyAdded}
           />
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <ImageBackground
               resizeMode="cover"
               style={styles.imageBackgroundStyle}
